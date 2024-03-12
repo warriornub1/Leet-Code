@@ -1,11 +1,17 @@
 class Solution:
     def isAnagram(self, s, t):
+        
         if len(s) != len(t):
             return False
         
-        map1, map2 = {}, {}
-        for i in range(len(s)):
-            map1[s[i]] = map1.get(s[i], 0) + 1
-            map2[t[i]] = map2.get(t[i], 0) + 1
+        map_s = {}
+        map_t = {}
         
-        return map1 == map2
+        for index in range(len(s)):
+            map_s[ s[index] ] = map_s.get( s[index], 0 ) + 1
+            map_t[ t[index] ] = map_t.get( t[index], 0 ) + 1
+        
+        return map_s == map_t
+
+s = Solution()
+print( s.isAnagram("anagram", "nagaram") )
